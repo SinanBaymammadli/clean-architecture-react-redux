@@ -40,12 +40,26 @@
     "ts-mockito": "^2.5.0",
     "typescript": "3.6.3"
   },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100
+      },
+      "./src/app": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    }
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && npm run test:noWatch"
+      "pre-commit": "lint-staged && npm run test:coverage"
     }
   },
   "lint-staged": {
