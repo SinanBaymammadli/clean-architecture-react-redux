@@ -6,26 +6,38 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test:coverage": "npm test -- --coverage --watchAll=false",
+    "test:noWatch": "npm test -- --watchAll=false",
+    "eject": "react-scripts eject",
+    "analyze": "npm run build && source-map-explorer 'build/static/js/*.js'"
   },
   "dependencies": {
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.10.3",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/jest": "24.0.18",
     "@types/node": "12.7.11",
     "@types/react": "16.9.5",
     "@types/react-dom": "16.9.1",
+    "@types/react-test-renderer": "^16.9.0",
     "@typescript-eslint/eslint-plugin": "^2.3.3",
     "@typescript-eslint/parser": "^2.3.3",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^6.5.1",
     "eslint-config-prettier": "^6.4.0",
     "eslint-plugin-prettier": "^3.1.1",
     "husky": "^3.0.8",
+    "jest-enzyme": "^7.1.1",
     "lint-staged": "^9.4.2",
     "prettier": "^1.18.2",
     "react-scripts": "3.2.0",
+    "react-test-renderer": "^16.10.2",
+    "source-map-explorer": "^2.1.0",
+    "ts-mockito": "^2.5.0",
     "typescript": "3.6.3"
   },
   "eslintConfig": {
@@ -33,7 +45,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged && npm run test:noWatch"
     }
   },
   "lint-staged": {
